@@ -19,7 +19,7 @@ function adicionarProduto(id, nome, valor, quantidade) {
     exibirCarrinho();
 }
 
-// Função para remover um produto do carrinho
+
 function removerProduto(id) {
     let carrinho = JSON.parse(localStorage.getItem('carrinho'));
     carrinho = carrinho.filter(produto => produto.id !== id);
@@ -27,7 +27,7 @@ function removerProduto(id) {
     exibirCarrinho();
 }
 
-// Função para exibir os produtos do carrinho
+
 function exibirCarrinho() {
     let carrinho = JSON.parse(localStorage.getItem('carrinho'));
     const listaProdutos = document.getElementById('lista-produtos');
@@ -39,7 +39,7 @@ function exibirCarrinho() {
             const total = produto.valor * produto.quantidade;
             li.textContent = `${produto.nome} - Quantidade: ${produto.quantidade} - Valor: R$ ${total.toFixed(2)}`;
 
-            // Cria um botão de remover
+
             const btnRemover = document.createElement('button');
             btnRemover.textContent = 'Remover';
             btnRemover.onclick = () => removerProduto(produto.id);
@@ -48,26 +48,22 @@ function exibirCarrinho() {
             listaProdutos.appendChild(li);
         });
     } else {
-        listaProdutos.innerHTML = 'O carrinho está vazio!';
+        listaProdutos.innerHTML = 'Não há itens no carrinho.';
     }
 }
 
-// Inicialização da aplicação: verificar se há produtos no carrinho e exibi-los
+
 exibirCarrinho();
 
-// Função para adicionar produtos manualmente
+
 function adicionarProdutoManual() {
-    // Exemplo de produtos a serem adicionados
-    const produtosParaAdicionar = [
-        { id: 1, nome: 'Camiseta', valor: 29.99, quantidade: 2 },
-        { id: 2, nome: 'Calça Jeans', valor: 99.90, quantidade: 1 },
-        { id: 3, nome: 'Tênis', valor: 149.90, quantidade: 1 }
-    ];
+    
+
 
     produtosParaAdicionar.forEach(produto => {
         adicionarProduto(produto.id, produto.nome, produto.valor, produto.quantidade);
     });
 }
 
-// Chame a função para adicionar produtos manualmente
+
 adicionarProdutoManual();

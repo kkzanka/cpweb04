@@ -61,7 +61,7 @@ li .actions {
 
 li img {
     cursor: pointer;
-    margin-right: 10px; /* Espaço entre o ícone de coração e o botão de remover */
+    margin-right: 10px;
 }
 
 li button {
